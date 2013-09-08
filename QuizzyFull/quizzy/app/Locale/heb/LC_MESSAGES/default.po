@@ -1,0 +1,228 @@
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-09-06 14:19+0200\n"
+"PO-Revision-Date: 2013-09-06 15:20+0200\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+# "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+#: Controller/AdminController.php:11
+msgid "Administration Area"
+msgstr "אזור אדמיניסטרטיבי"
+
+#: Controller/AdminController.php:57
+msgid "Add a patient"
+msgstr "הוספת נבדק"
+
+#: Controller/AdminController.php:92
+msgid "Patient added successfully!"
+msgstr "נבדק הוסף בהצלחה!"
+
+#: Controller/AdminController.php:103;232
+msgid "ERROR entered passwords do not match!"
+msgstr "שגיאה - הסיסמאות אינן תואמות"
+
+#: Controller/AdminController.php:110;238
+msgid "ERROR updating password (please check length)!"
+msgstr "שגיאה בעדכון סיסמא (נא בדקו אורך ותקינות)!"
+
+#: Controller/AdminController.php:113
+msgid "Patient updated successfully (including password)!"
+msgstr "נבדק עודכן בהצלחה!"
+
+#: Controller/AdminController.php:117
+msgid "Patient updated successfully!"
+msgstr "נבדק עודכן בהצלחה!"
+
+#: Controller/AdminController.php:134
+msgid "Update a patient"
+msgstr "עדכון נבדק"
+
+#: Controller/AdminController.php:153
+msgid "File added successfully!"
+msgstr "קובץ הוסף בהצלחה!"
+
+#: Controller/AdminController.php:155
+msgid "Error - no file specified!"
+msgstr "שגיאה - לא הוגדר קובץ!"
+
+#: Controller/AdminController.php:170
+msgid "File removed successfully!"
+msgstr "קובץ הוסר בהצלחה!"
+
+#: Controller/AdminController.php:172
+msgid "Error removing file!"
+msgstr "שגיאה בהסרת קובץ!"
+
+#: Controller/AdminController.php:175
+msgid "Error removing database entry!"
+msgstr "שגיאה בהסרת רשומה ממסד הנתונים"
+
+#: Controller/AdminController.php:185
+msgid "Add an assistant"
+msgstr "הוספת עוזר"
+
+#: Controller/AdminController.php:221
+msgid "Assistant added successfully!"
+msgstr "עוזר מחקר הוסף בהצלחה!"
+
+#: Controller/AdminController.php:241
+msgid "Assistant updated successfully (including password)!"
+msgstr "עוזר מחקר עודכן בהצלחה!"
+
+#: Controller/AdminController.php:245
+msgid "Assistant updated successfully!"
+msgstr "עוזר עודכן בהצלחה!"
+
+#: Controller/AdminController.php:269
+msgid "Assistant removed successfully!"
+msgstr "עוזר הוסר בהצלחה!"
+
+#: Controller/AdminController.php:278
+msgid "Add a research"
+msgstr "הוספת מחקר"
+
+#: Controller/AdminController.php:294
+msgid "Import an existing patient"
+msgstr "יבוא נבדק קיים"
+
+#: Controller/AdminController.php:304
+msgid "Patient already associated with research!"
+msgstr "נבדק שוייך בהצלחה למחקר!"
+
+#: Controller/AdminController.php:311
+msgid "Patient imported successfully!"
+msgstr "נבדק עודכן בהצלחה!"
+
+#: Controller/AdminController.php:325
+msgid "Add a quiz"
+msgstr "הוספת שאלון"
+
+#: Controller/AdminController.php:351
+msgid "Question "
+msgstr "שאלה"
+
+#: Controller/AdminController.php:351
+msgid " added successfully, continue building"
+msgstr "הוספה בהצלחה, המשיכו בבנייה"
+
+#: Controller/AdminController.php:401
+msgid "Quiz added successfully!"
+msgstr "שאלון הוסף בהצלחה!"
+
+#: Controller/AdminController.php:414
+msgid "Manage patient quiz allocation"
+msgstr "ניהול הקצאות שאלונים לנבדק"
+
+#: Controller/AdminController.php:422
+msgid "Quiz allocation saved successfully!"
+msgstr "הקצאת שאלונים נשמרה בהצלחה!"
+
+#: Controller/AdminController.php:442
+msgid "Manage assistant allocation"
+msgstr "ניהול הקצאות עוזרי מחקר"
+
+#: Controller/AdminController.php:452
+msgid "Assistant allocation saved successfully!"
+msgstr "הקצאת עוזרי מחקר נשמרה בהצלחה!"
+
+#: Controller/AdminController.php:488
+msgid "Manage patient allocation"
+msgstr "ניהול נבדקים"
+
+#: Controller/AdminController.php:516
+msgid "Patient allocation saved successfully!"
+msgstr "הקצאת נבדקים נשמרה בהצלחה!"
+
+#: Controller/AdminController.php:541
+msgid "Patient removed! - commented out the actual deletion row"
+msgstr "נבדק הוסר"
+
+#: Controller/AdminController.php:560
+msgid "Quiz removed successfully!"
+msgstr "שאלון הוסר בהצלחה!"
+
+#: Controller/AnalysisController.php:7
+msgid "Analysis Area"
+msgstr "אזור ניתוח מידע"
+
+#: Controller/AppController.php:49
+msgid "You must be logged in to view this page."
+msgstr "עליכם להיות מחוברים כדי לצפות בעמוד זה"
+
+#: Controller/AppController.php:50
+msgid "Invalid Username or Password entered, please try again."
+msgstr "שם משתמש או סיסמא שגויים, אנא נסו שנית"
+
+# "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+#: Controller/AssistantController.php:16
+msgid "Assistant Area"
+msgstr "אזור עוזרי מחקר"
+
+#: Controller/AssistantController.php:87
+msgid "You are not authorized for this research!"
+msgstr "אינך מורשה למחקר זה!"
+
+#: Controller/PatientController.php:17
+msgid "Patient Area"
+msgstr "אזור נבדק"
+
+#: Controller/QuizController.php:16
+msgid "Quiz Area"
+msgstr "אזור שאלון"
+
+#: Controller/QuizController.php:29
+msgid "ERROR - Unallocated quiz!"
+msgstr "שגיאה - שאלון לא מוקצה לנבדק!"
+
+#: Controller/QuizController.php:36
+msgid "ERROR - Quiz already completed!"
+msgstr "שגיאה - השאלון כבר הושלם!"
+
+#: Controller/QuizController.php:68
+msgid "Quiz saved successfully!"
+msgstr "שאלון נשמר בהצלחה!"
+
+#: Controller/UsersController.php:12 View/Users/login.ctp:10
+#: View/Users/heb/login.ctp:10
+msgid "Login"
+msgstr "כניסה"
+
+#: Controller/UsersController.php:32
+msgid "Your username/password combination was incorrect"
+msgstr "שם משתמש או סיסמא שגויים, אנא נסו שנית"
+
+#: View/Layouts/default.ctp:69
+msgid "Back"
+msgstr "חזרה"
+
+#: View/Layouts/default.ctp:94 View/Layouts/mobile.ctp:63
+msgid "Logged in as"
+msgstr "מחובר כ"
+
+#: View/Layouts/default.ctp:94 View/Layouts/mobile.ctp:63
+msgid "Logout"
+msgstr "התנתק"
+
+#: View/Users/login.ctp:5 View/Users/heb/login.ctp:5
+msgid "Please enter your username and password"
+msgstr "אנא הקלידו שם משתמש וסיסמא"
+
+#: Model/User.php:validation for field password
+msgid "A password is required"
+msgstr "נדרשת סיסמא"
+
+#: Model/User.php:validation for field password
+msgid "Password must have a mimimum of 6 characters"
+msgstr "אורך סיסמא מינימלי הוא 6 תווים"
+
+#: Model/User.php:validation for field role
+msgid "Please enter a valid role"
+msgstr "אנא הקישו תפקיד תקין"

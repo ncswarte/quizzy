@@ -1,0 +1,233 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-09-06 14:19+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AdminController.php:11
+msgid "Administration Area"
+msgstr ""
+
+#: Controller/AdminController.php:57
+msgid "Add a patient"
+msgstr ""
+
+#: Controller/AdminController.php:92
+msgid "Patient added successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:103;232
+msgid "ERROR entered passwords do not match!"
+msgstr ""
+
+#: Controller/AdminController.php:110;238
+msgid "ERROR updating password (please check length)!"
+msgstr ""
+
+#: Controller/AdminController.php:113
+msgid "Patient updated successfully (including password)!"
+msgstr ""
+
+#: Controller/AdminController.php:117
+msgid "Patient updated successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:134
+msgid "Update a patient"
+msgstr ""
+
+#: Controller/AdminController.php:153
+msgid "File added successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:155
+msgid "Error - no file specified!"
+msgstr ""
+
+#: Controller/AdminController.php:170
+msgid "File removed successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:172
+msgid "Error removing file!"
+msgstr ""
+
+#: Controller/AdminController.php:175
+msgid "Error removing database entry!"
+msgstr ""
+
+#: Controller/AdminController.php:185
+msgid "Add an assistant"
+msgstr ""
+
+#: Controller/AdminController.php:221
+msgid "Assistant added successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:241
+msgid "Assistant updated successfully (including password)!"
+msgstr ""
+
+#: Controller/AdminController.php:245
+msgid "Assistant updated successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:269
+msgid "Assistant removed successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:278
+msgid "Add a research"
+msgstr ""
+
+#: Controller/AdminController.php:294
+msgid "Import an existing patient"
+msgstr ""
+
+#: Controller/AdminController.php:304
+msgid "Patient already associated with research!"
+msgstr ""
+
+#: Controller/AdminController.php:311
+msgid "Patient imported successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:325
+msgid "Add a quiz"
+msgstr ""
+
+#: Controller/AdminController.php:351
+msgid "Question "
+msgstr ""
+
+#: Controller/AdminController.php:351
+msgid " added successfully, continue building"
+msgstr ""
+
+#: Controller/AdminController.php:401
+msgid "Quiz added successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:414
+msgid "Manage patient quiz allocation"
+msgstr ""
+
+#: Controller/AdminController.php:422
+msgid "Quiz allocation saved successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:442
+msgid "Manage assistant allocation"
+msgstr ""
+
+#: Controller/AdminController.php:452
+msgid "Assistant allocation saved successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:488
+msgid "Manage patient allocation"
+msgstr ""
+
+#: Controller/AdminController.php:516
+msgid "Patient allocation saved successfully!"
+msgstr ""
+
+#: Controller/AdminController.php:541
+msgid "Patient removed! - commented out the actual deletion row"
+msgstr ""
+
+#: Controller/AdminController.php:560
+msgid "Quiz removed successfully!"
+msgstr ""
+
+#: Controller/AnalysisController.php:7
+msgid "Analysis Area"
+msgstr ""
+
+#: Controller/AppController.php:49
+msgid "You must be logged in to view this page."
+msgstr ""
+
+#: Controller/AppController.php:50
+msgid "Invalid Username or Password entered, please try again."
+msgstr ""
+
+#: Controller/AssistantController.php:16
+msgid "Assistant Area"
+msgstr ""
+
+#: Controller/AssistantController.php:87
+msgid "You are not authorized for this research!"
+msgstr ""
+
+#: Controller/PatientController.php:17
+msgid "Patient Area"
+msgstr ""
+
+#: Controller/QuizController.php:16
+msgid "Quiz Area"
+msgstr ""
+
+#: Controller/QuizController.php:29
+msgid "ERROR - Unallocated quiz!"
+msgstr ""
+
+#: Controller/QuizController.php:36
+msgid "ERROR - Quiz already completed!"
+msgstr ""
+
+#: Controller/QuizController.php:68
+msgid "Quiz saved successfully!"
+msgstr ""
+
+#: Controller/UsersController.php:12
+#: View/Users/login.ctp:10
+#: View/Users/heb/login.ctp:10
+msgid "Login"
+msgstr ""
+
+#: Controller/UsersController.php:32
+msgid "Your username/password combination was incorrect"
+msgstr ""
+
+#: View/Layouts/default.ctp:69
+msgid "Back"
+msgstr ""
+
+#: View/Layouts/default.ctp:94
+#: View/Layouts/mobile.ctp:63
+msgid "Logged in as"
+msgstr ""
+
+#: View/Layouts/default.ctp:94
+#: View/Layouts/mobile.ctp:63
+msgid "Logout"
+msgstr ""
+
+#: View/Users/login.ctp:5
+#: View/Users/heb/login.ctp:5
+msgid "Please enter your username and password"
+msgstr ""
+
+#: Model/User.php:validation for field password
+msgid "A password is required"
+msgstr ""
+
+#: Model/User.php:validation for field password
+msgid "Password must have a mimimum of 6 characters"
+msgstr ""
+
+#: Model/User.php:validation for field role
+msgid "Please enter a valid role"
+msgstr ""
+

@@ -1,0 +1,119 @@
+
+body {
+	background: #fff;
+	/*color: #ccc;*/
+	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+	font-size:90%;
+	margin: 0;
+}
+
+#content {
+	padding: 0px 10px 0px 10px;
+}
+
+form .input {
+	color: #444;
+}
+form .required {
+	font-weight: regular;
+}
+form .required label:after {
+	color: #e32;
+	content: '*';
+	display:inline;
+}
+form div.submit {
+	border: 0;
+	clear: both;
+	margin-top: 10px;
+}
+label {
+	display: block;
+	font-size: 110%;
+	margin-bottom:3px;
+}
+input, textarea , button {
+	clear: both;
+	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+}
+select {
+	clear: both;
+	vertical-align: text-bottom;
+}
+select[multiple=multiple] {
+	width: 100%;
+}
+option {
+	padding: 0 3px;
+}
+input[type=checkbox] {
+	margin: 0px 6px 7px 2px;
+	width: auto;
+}
+div.checkbox label {
+	display: inline;
+}
+input[type=radio] {
+	width:auto;
+	margin: 6px 0;
+	padding: 0;
+	line-height: 26px;
+}
+.radio label {
+	margin: 0 0 6px 20px;
+	line-height: 26px;
+}
+input[type=submit] {
+	display: inline;
+	font-size: 110%;
+	width: auto;
+}
+
+form .submit input[type=submit] {
+	background:#cde08d;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#cde08d), to(#abb858));
+	background-image: -webkit-linear-gradient(top, #cde08d, #abb858);
+	background-image: -moz-linear-gradient(top, #cde08d, #abb858);
+	border-color: #abb858;
+	color: #fff;
+	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
+	padding: 8px 8px;
+}
+
+#footer {
+	background: #d0dbda;
+	color: black;
+	clear: both;
+	padding: 6px 10px;
+	text-align: right;
+	width: 100%;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#header {
+	font-size: 12px;
+	padding: 0px;
+}
+
+#header h1 {
+	margin: 0;
+	margin-bottom: 15px;
+	line-height:65px;
+	background: #195963;
+	color: #CCE0E0;
+	font-weight: bold;
+	padding: 0px 10px 0px 10px;
+	width: 100%;
+}
+#header h1 a {
+	color: #CCE0E0;
+	background: #195963;
+	font-weight: normal;
+	text-decoration: none;
+}
+#header h1 a:hover {
+	color: #CCE0E0;
+	background: #195963;
+	text-decoration: underline;
+}

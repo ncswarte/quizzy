@@ -27,6 +27,18 @@ $(function() {
 		}
 		$(this).next('div').toggle();
 	});
+	
+	$('.aRemoveQuiz').on( 'click', function() {
+		var strRemoveQuiz = $(this).attr('id').toString();
+		strRemoveQuiz = strRemoveQuiz.replace('idRemoveQuiz', '');
+		var resQ = confirm("האם אתם בטוחים שברצונכם להסיר את השאלון הנבחר?");
+		
+		if( resQ == true ) {
+			$("#rawData").append('<form id="exportform" action="<?php echo Router::url(array('controller' => 'Admin', 'action' => 'deleteQuiz'), true ); ?>" method="post"><input type="hidden" id="fldQuizID" name="fldQuizID" /></form>');
+			$("#fldQuizID").val( strRemoveQuiz );
+			$("#exportform").submit().remove();
+		}
+	});
 
 	if( intCurrentResearch != "" ) {
 		$('#selResearch').val( intCurrentResearch );
@@ -105,7 +117,7 @@ $(function() {
 	<h2 class="classShowHideTable">רשימת שאלונים: [הצג]</h2>
 	<div class="divShowHide" style="display: none;">
 	<table style="width: 50%; border: 1px solid gray;">
-	<tr><th>מזהה שאלון</th><th>כותרת שאלון</th><th>View - do we want it and/or a delete?</th></tr>
+	<tr><th>מזהה שאלון</th><th>כותרת שאלון</th><th>הסרה</th></tr>
 	
 	<?php
 	
@@ -114,7 +126,7 @@ $(function() {
 		
 	// Print quiz list
 	foreach ($arrQuizzes as $currPat) {
-		echo "\t\t".'<tr><td>'.$currPat['Quiz']['quizID'].'</td><td>'.$currPat['Quiz']['quizTitle'].'</td><td><a href="#" target="_blank">Click here</a></td></tr>'."\n";
+		echo "\t\t".'<tr><td>'.$currPat['Quiz']['quizID'].'</td><td>'.$currPat['Quiz']['quizTitle'].'</td><td><a style="cursor: pointer" class="aRemoveQuiz" id="idRemoveQuiz'.$currPat['Quiz']['quizID'].'" target="_blank">הסרה</a></td></tr>'."\n";
 	}
 	?>
 	

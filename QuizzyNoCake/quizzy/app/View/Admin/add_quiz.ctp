@@ -15,8 +15,6 @@
 			$('#fldQuizTitle').val(prevTitle);
 		}
 		if( prevQuiz != '' ) {
-			// $('#rawDataPrev').html('<pre>' + prevQuiz + '</pre>');
-			// $('#rawDataPrev').show;
 			$('#rawDataPrev').val(prevQuiz);
 		}
 

@@ -71,7 +71,7 @@ $(function() {
 		var resQ = confirm("האם אתם בטוחים שברצונכם להסיר את הנבדק?");
 		
 		if( resQ == true ) {
-			$("#rawData").append('<form id="exportform" action="<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'delPatient'), false ); ?>" method="post"><input type="hidden" id="fldPatientID" name="fldPatientID" /></form>');
+			$("#rawData").append('<form id="exportform" action="<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'deletePatient'), false ); ?>" method="post"><input type="hidden" id="fldPatientID" name="fldPatientID" /></form>');
 			$("#fldPatientID").val( patID );
 			$("#exportform").submit().remove();
 		}

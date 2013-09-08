@@ -376,6 +376,13 @@ class AdminController extends AppController {
 			// Time to save this bad boy!
 			} else {
 			
+				// Handle the upload stuff - the last question might have an image my dear!
+				if( $this->request->data['upload']['name'] != "" ) {
+					$this->request->data['fldQuizData'] = trim($this->request->data['fldQuizData']);
+					$this->request->data['FINALPATH'] = $this->handleUpload( $this->data['upload'] , 'question' );
+					$this->request->data['fldQuizData'] .= "IMG=".$this->request->data['FINALPATH']."\n";
+				}
+			
 				// Save the quiz
 				$this->saveQuiz( $this->request->data['fldQuizTitle'] );
 				$tempNewQuizID = $this->Quiz->getLastInsertID();

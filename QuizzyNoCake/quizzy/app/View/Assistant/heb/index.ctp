@@ -22,13 +22,23 @@ $(function() {
 		}
 		$(this).next('div').toggle();
 	});
+	
+	$('.aRemoveQuiz').on( 'click', function() {
+		var strRemoveQuiz = $(this).attr('id').toString();
+		strRemoveQuiz = strRemoveQuiz.replace('idRemoveQuiz', '');
+		var resQ = confirm("האם אתם בטוחים שברצונכם להסיר את השאלון הנבחר?");
+		
+		if( resQ == true ) {
+			$("#rawData").append('<form id="exportform" action="<?php echo Router::url(array('controller' => 'Assistant', 'action' => 'deleteQuiz'), true ); ?>" method="post"><input type="hidden" id="fldQuizID" name="fldQuizID" /></form>');
+			$("#fldQuizID").val( strRemoveQuiz );
+			$("#exportform").submit().remove();
+		}
+	});
 
 	if( intCurrentResearch != "" ) {
 		$('#selResearch').val( intCurrentResearch );
 	} else {
-		//$('#divPatientList').remove();
-		//$('#divQuizList').remove();
-		$('#divResearchData').text('No research selected');
+		$('#divResearchData').text('לא נבחר מחקר');
 	}
 });
 
@@ -46,12 +56,13 @@ $(function() {
 </div>
 
 <div id="divResearchData">
+
 <!-- START of Patient List -->
-	<div id="divPatientList">
+<div id="divPatientList">
 	<h2 class="classShowHideTable">רשימת נבדקים: [הצג]</h2>
 	<div class="divShowHide" style="display: none;">
 	<table style="width: 60%; border: 1px solid gray;">
-		<tr><th>מזהה נבדק:</th><th>שם:</th><th>שאלון:</th><th>הושלם?</th><th>שאלונים</th><th>פרופיל</th></tr>
+		<tr><th>מזהה נבדק</th><th>שם</th><th>שאלון</th><th>הושלם?</th><th>שאלונים</th><th>פרופיל</th></tr>
 <?php
 	
 	if( count( $arrPatients ) == 0 ) 
@@ -63,9 +74,8 @@ $(function() {
 		if( !isset($arrPatientsQuizzes[$currPat['Patient']['patID']]) || count($arrPatientsQuizzes[$currPat['Patient']['patID']]) < 1 ) {
 			echo "\t\t".'<tr><td>'.$currPat['Patient']['patID'].'</td><td>'.$currPat['Patient']['patFirstname'].' '.$currPat['Patient']['patLastname'].'</td>';
 			echo '<td colspan="2" style="text-align: center; font-weight: bold;">טרם הוגדרו</td>';
-			echo '<td>'.$this->Html->link( 'שינוי', array('controller' => 'Admin', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
-			echo '<td>'.$this->Html->link( 'עריכה', array('controller' => 'Admin', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).' | ';
-			echo $this->Html->link( 'הצג', array('controller' => 'Admin', 'action' => 'viewPatient', $currPat["Patient"]["patID"]) ).'</td>';
+			echo '<td>'.$this->Html->link( 'שינוי', array('controller' => 'Assistant', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
+			echo '<td>'.$this->Html->link( 'עריכה', array('controller' => 'Assistant', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).'</td>';
 			echo '</tr>'."\n";
 		} else {
 			echo "\t\t".'<tr><td rowspan="'.sizeof($arrPatientsQuizzes[$currPat['Patient']['patID']]).'">'.$currPat['Patient']['patID'].'</td><td rowspan="'.sizeof($arrPatientsQuizzes[$currPat['Patient']['patID']]).'">'.$currPat['Patient']['patFirstname'].' '.$currPat['Patient']['patLastname'].'</td>';
@@ -77,31 +87,30 @@ $(function() {
 					echo '<td>לא</td>';
 				}
 
-				echo '<td>'.$this->Html->link( 'שינוי', array('controller' => 'Admin', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
-				echo '<td>'.$this->Html->link( 'עריכה', array('controller' => 'Admin', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).' | ';
-				echo $this->Html->link( 'הצג', array('controller' => 'Admin', 'action' => 'viewPatient', $currPat["Patient"]["patID"]) ).'</td>';
+				echo '<td>'.$this->Html->link( 'שינוי', array('controller' => 'Assistant', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
+				echo '<td>'.$this->Html->link( 'עריכה', array('controller' => 'Assistant', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).'</td>';
 				echo '</tr>'."\n";
 			}
 		}
 	}
 ?>
 	</table>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addPatient'), true ); ?>'; return false;">הוספת נבדק חדש</button>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'importPatient'), true ); ?>'; return false;">יבוא נבדק</button>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'mana'), true ); ?>'; return false;">ASDASD?ASD?S</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'addPatient'), true ); ?>'; return false;">הוספת נבדק חדש</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'importPatient'), true ); ?>'; return false;">יבוא נבדק</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'managePatients'), true ); ?>'; return false;">ניהול נבדקים</button>
 	<br/><br/>
 	</div>
-	</div>
-	<!-- END of Patient List -->
+</div>
+<!-- END of Patient List -->
 	
-	<hr><br/><br/>
+<hr><br/><br/>
 
-	<!-- START of Quiz List -->
-	<div id="divQuizList">
+<!-- START of Quiz List -->
+<div id="divQuizList">
 	<h2 class="classShowHideTable">רשימת שאלונים: [הצג]</h2>
 	<div class="divShowHide" style="display: none;">
 	<table style="width: 50%; border: 1px solid gray;">
-	<tr><th>מזהה שאלון:</th><th>כותרת שאלון:</th><th>View - do we want it and/or a delete?</th></tr>
+	<tr><th>מזהה שאלון</th><th>כותרת שאלון</th><th>הסרה</th></tr>
 	
 	<?php
 	
@@ -110,17 +119,17 @@ $(function() {
 		
 	// Print quiz list
 	foreach ($arrQuizzes as $currPat) {
-		echo "\t\t".'<tr><td>'.$currPat['Quiz']['quizID'].'</td><td>'.$currPat['Quiz']['quizTitle'].'</td><td><a href="#" target="_blank">Click here</a></td></tr>'."\n";
+		echo "\t\t".'<tr><td>'.$currPat['Quiz']['quizID'].'</td><td>'.$currPat['Quiz']['quizTitle'].'</td><td><a style="cursor: pointer" class="aRemoveQuiz" id="idRemoveQuiz'.$currPat['Quiz']['quizID'].'" target="_blank">הסרה</a></td></tr>'."\n";
 	}
 	?>
-	
 	</table>
-	<button type="button" onclick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addQuiz'), true ); ?>'; return false;">הוספת שאלון חדש</button>
+	<button type="button" onclick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'addQuiz'), true ); ?>'; return false;">הוספת שאלון חדש</button>
 	<br/><br/>
 	</div>
-	</div>
-	
-	<!-- END of Quiz List -->
+</div>	
+<!-- END of Quiz List -->
+
+<hr><br/><br/>
 
 <!-- START of Analysis List -->
 <div id="divAnalysis">
@@ -128,4 +137,6 @@ $(function() {
 </div>
 <!-- END of Analysis List -->
 
+</div>
+<div id="rawData" style="display: none;">
 </div>

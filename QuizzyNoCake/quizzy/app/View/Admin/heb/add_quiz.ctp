@@ -1,12 +1,14 @@
 <h2>הוספת שאלון</h2>
-<?php 
-	//debug(json_encode($prevQuiz));
+<?php
+	// For show current question number
+	$currQNum = $prevQNum + 1;
 ?>
 <script type="text/javascript">
 	$(function() {
 	
-		var prevTitle = <?php echo json_encode($prevTitle); ?>; 
-		var prevQuiz = <?php echo json_encode($prevQuiz); ?>; 
+		var prevTitle 	= <?php echo json_encode($prevTitle); ?>; 
+		var prevQuiz 	= <?php echo json_encode($prevQuiz); ?>; 
+		var currQNum 	= <?php echo json_encode($currQNum); ?>;
 		
 		// Set title to previous if required
 		if( prevTitle != '' ) {
@@ -272,6 +274,9 @@
 		</tr>
 			<input type="hidden" id="fldQuizData" name="fldQuizData" />
 			<input type="hidden" id="fldFlagDone" name="fldFlagDone" />
+		<tr>
+			<td>Question Number:</td><td><b><?php echo $currQNum; ?><b></td>
+		</tr>
 		<tr>
 			<td>סוג שאלה:</td><td>
 				<select id="selType">

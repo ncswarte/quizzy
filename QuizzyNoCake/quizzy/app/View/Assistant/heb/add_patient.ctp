@@ -1,6 +1,6 @@
 <h2>הוספת נבדק:</h2>
 <?php
-	echo $this->Form->create('Patient',array('url' => array('controller' => 'Admin', 'action' => 'addPatient')));
+	echo $this->Form->create('Patient',array('url' => array('controller' => 'Assistant', 'action' => 'addPatient')));
 	echo $this->Form->hidden('Patient.patID');
 	echo $this->Form->input('Patient.patFirstname', array('label' => 'שם פרטי') );
 	echo $this->Form->input('Patient.patLastname', array('label' => 'שם משפחה') );
@@ -38,7 +38,7 @@
 	?>
 	<h2>הוספת קובץ חדש:</h2>
 	<?php 
-	echo $this->Form->create('PatientFiles', array('url' => array('controller' => 'Admin', 'action' => 'addPatientFile'), 'type' => 'file'));
+	echo $this->Form->create('PatientFiles', array('url' => array('controller' => 'Assistant', 'action' => 'addPatientFile'), 'type' => 'file'));
 	echo $this->Form->hidden('Patient.patID');
 	echo $this->Form->input('PatientFiles.fileDescription', array('label' => 'תיאור') );
 	echo $this->Form->input('upload', array('type' => 'file', 'label' => 'בחירת קובץ'));
@@ -50,7 +50,7 @@
 $(function() {
 	
 	var patID = $('#PatientPatID').val();
-	var tmpLink = "<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'deleteFile'), false); ?>/" + patID + "/";
+	var tmpLink = "<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'deleteFile'), false); ?>/" + patID + "/";
 	
 	if( patID.length < 1 ) {
 		$('#btnDelete').hide();
@@ -71,7 +71,7 @@ $(function() {
 		var resQ = confirm("האם אתם בטוחים שברצונכם להסיר את הנבדק?");
 		
 		if( resQ == true ) {
-			$("#rawData").append('<form id="exportform" action="<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'deletePatient'), false ); ?>" method="post"><input type="hidden" id="fldPatientID" name="fldPatientID" /></form>');
+			$("#rawData").append('<form id="exportform" action="<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'deletePatient'), false ); ?>" method="post"><input type="hidden" id="fldPatientID" name="fldPatientID" /></form>');
 			$("#fldPatientID").val( patID );
 			$("#exportform").submit().remove();
 		}

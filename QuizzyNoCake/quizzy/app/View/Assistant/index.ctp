@@ -23,6 +23,18 @@ $(function() {
 		$(this).next('div').toggle();
 	});
 
+	$('.aRemoveQuiz').on( 'click', function() {
+		var strRemoveQuiz = $(this).attr('id').toString();
+		strRemoveQuiz = strRemoveQuiz.replace('idRemoveQuiz', '');
+		var resQ = confirm("Are you sure you would like to delete this quiz?");
+		
+		if( resQ == true ) {
+			$("#rawData").append('<form id="exportform" action="<?php echo Router::url(array('controller' => 'Assistant', 'action' => 'deleteQuiz'), true ); ?>" method="post"><input type="hidden" id="fldQuizID" name="fldQuizID" /></form>');
+			$("#fldQuizID").val( strRemoveQuiz );
+			$("#exportform").submit().remove();
+		}
+	});
+
 	if( intCurrentResearch != "" ) {
 		$('#selResearch').val( intCurrentResearch );
 	} else {
@@ -44,12 +56,13 @@ $(function() {
 </div>
 
 <div id="divResearchData">
+
 <!-- START of Patient List -->
-	<div id="divPatientList">
+<div id="divPatientList">
 	<h2 class="classShowHideTable">Patient List: [Show]</h2>
 	<div class="divShowHide" style="display: none;">
 	<table style="width: 60%; border: 1px solid gray;">
-		<tr><th>Patient ID:</th><th>Name:</th><th>Quiz:</th><th>Completed?</th><th>Quizes</th><th>Profile</th></tr>
+		<tr><th>Patient ID</th><th>Name</th><th>Quiz</th><th>Completed?</th><th>Quizes</th><th>Profile</th></tr>
 <?php
 	
 	if( count( $arrPatients ) == 0 ) 
@@ -61,9 +74,8 @@ $(function() {
 		if( !isset($arrPatientsQuizzes[$currPat['Patient']['patID']]) || count($arrPatientsQuizzes[$currPat['Patient']['patID']]) < 1 ) {
 			echo "\t\t".'<tr><td>'.$currPat['Patient']['patID'].'</td><td>'.$currPat['Patient']['patFirstname'].' '.$currPat['Patient']['patLastname'].'</td>';
 			echo '<td colspan="2" style="text-align: center; font-weight: bold;">None defined</td>';
-			echo '<td>'.$this->Html->link( 'Change', array('controller' => 'Admin', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
-			echo '<td>'.$this->Html->link( 'Should they Edit?', array('controller' => 'Admin', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).' | ';
-			echo $this->Html->link( 'View', array('controller' => 'Admin', 'action' => 'viewPatient', $currPat["Patient"]["patID"]) ).'</td>';
+			echo '<td>'.$this->Html->link( 'Change', array('controller' => 'Assistant', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
+			echo '<td>'.$this->Html->link( 'Edit', array('controller' => 'Assistant', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).'</td>';
 			echo '</tr>'."\n";
 		} else {
 			echo "\t\t".'<tr><td rowspan="'.sizeof($arrPatientsQuizzes[$currPat['Patient']['patID']]).'">'.$currPat['Patient']['patID'].'</td><td rowspan="'.sizeof($arrPatientsQuizzes[$currPat['Patient']['patID']]).'">'.$currPat['Patient']['patFirstname'].' '.$currPat['Patient']['patLastname'].'</td>';
@@ -75,31 +87,30 @@ $(function() {
 					echo '<td>No</td>';
 				}
 
-				echo '<td>'.$this->Html->link( 'Change', array('controller' => 'Admin', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
-				echo '<td>'.$this->Html->link( 'Should they Edit?', array('controller' => 'Admin', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).' | ';
-				echo $this->Html->link( 'View', array('controller' => 'Admin', 'action' => 'viewPatient', $currPat["Patient"]["patID"]) ).'</td>';
+				echo '<td>'.$this->Html->link( 'Change', array('controller' => 'Assistant', 'action' => 'patientQuiz', $currPat["Patient"]["patID"]) ).'</td>';
+				echo '<td>'.$this->Html->link( 'Edit', array('controller' => 'Assistant', 'action' => 'addPatient', $currPat["Patient"]["patID"]) ).'</td>';
 				echo '</tr>'."\n";
 			}
 		}
 	}
 ?>
 	</table>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addPatient'), true ); ?>'; return false;">Add new patient</button>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'importPatient'), true ); ?>'; return false;">Should they import?</button>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'mana'), true ); ?>'; return false;">Should they manage?</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'addPatient'), true ); ?>'; return false;">Add new patient</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'importPatient'), true ); ?>'; return false;">Import patient</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'managePatients'), true ); ?>'; return false;">Manage patients</button>
 	<br/><br/>
 	</div>
-	</div>
-	<!-- END of Patient List -->
+</div>
+<!-- END of Patient List -->
 	
-	<hr><br/><br/>
+<hr><br/><br/>
 
-	<!-- START of Quiz List -->
-	<div id="divQuizList">
+<!-- START of Quiz List -->
+<div id="divQuizList">
 	<h2 class="classShowHideTable">Quiz List: [Show]</h2>
 	<div class="divShowHide" style="display: none;">
 	<table style="width: 50%; border: 1px solid gray;">
-	<tr><th>Quiz ID:</th><th>Quiz Title:</th><th>View - do we want it and/or a delete?</th></tr>
+	<tr><th>Quiz ID</th><th>Quiz Title</th><th>Remove</th></tr>
 	
 	<?php
 	
@@ -108,16 +119,17 @@ $(function() {
 		
 	// Print quiz list
 	foreach ($arrQuizzes as $currPat) {
-		echo "\t\t".'<tr><td>'.$currPat['Quiz']['quizID'].'</td><td>'.$currPat['Quiz']['quizTitle'].'</td><td><a href="#" target="_blank">Click here</a></td></tr>'."\n";
+		echo "\t\t".'<tr><td>'.$currPat['Quiz']['quizID'].'</td><td>'.$currPat['Quiz']['quizTitle'].'</td><td><a style="cursor: pointer" class="aRemoveQuiz" id="idRemoveQuiz'.$currPat['Quiz']['quizID'].'" target="_blank">Remove</a></td></tr>'."\n";
 	}
 	?>
 	</table>
-	<button type="button" onclick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addQuiz'), true ); ?>'; return false;">Add new quiz</button>
+	<button type="button" onclick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Assistant', 'action' => 'addQuiz'), true ); ?>'; return false;">Add new quiz</button>
 	<br/><br/>
 	</div>
-	</div>
-	
-	<!-- END of Quiz List -->
+</div>
+<!-- END of Quiz List -->
+
+<hr><br/><br/>
 
 <!-- START of Analysis List -->
 <div id="divAnalysis">
@@ -125,4 +137,6 @@ $(function() {
 </div>
 <!-- END of Analysis List -->
 
+</div>
+<div id="rawData" style="display: none;">
 </div>

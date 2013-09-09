@@ -151,9 +151,7 @@ if (isset($filePresent)):
 <h3><?php echo 'Reminder - remove this page' ?></h3>
 <p>
 <?php
-echo 'You can either empty out: APP/View/Pages/home.ctp,<br />
-Or you can remove the Auth enablement of the page,<br />
-Or you can remove the routing to this page.';
+echo 'You should remove the routing to this page (by editing routes.php as described in the "Quizzy Installation Guide") and optionally remove the whole page.';
 ?>
 </p>
 

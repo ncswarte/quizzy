@@ -67,6 +67,10 @@ $(function() {
 			//alert("all good");
 		}
 		
+		if( confirm("אנא וודאו תשובותיכם\nהאם ברצונכם לשלוח את השאלון?") == false ) {
+			return false;
+		}
+		
 		// it'll submit here...
 
     });

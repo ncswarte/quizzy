@@ -67,6 +67,10 @@ $(function() {
 			//alert("all good");
 		}
 		
+		if( confirm("Please verify your answers.\nDo you wish to submit?") == false ) {
+			return false;
+		}
+		
 		// it'll submit here...
 
     });

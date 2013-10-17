@@ -14,7 +14,7 @@ class PatientController extends AppController {
 	
 	public function index() {
 		
-		$this->set('title_for_layout', __('Patient Area') );
+		$this->set('title_for_layout', __('Participant Area') );
 		
 		// TODO check if patient number exists?
 		$tempID = $this->Session->read('Auth.User');

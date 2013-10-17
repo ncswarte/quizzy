@@ -64,12 +64,12 @@ $(function() {
 
 <div id="divResearchData">
 	
-<!-- START of Patient List -->
+<!-- START of Participant List -->
 <div id="divPatientList">
-	<h2 class="classShowHideTable">Patient List: [Show]</h2>
+	<h2 class="classShowHideTable">Participant List: [Show]</h2>
 	<div class="divShowHide" style="display: none;">
 	<table style="width: 60%; border: 1px solid gray;">
-		<tr><th>Patient ID</th><th>Name</th><th>Quiz</th><th>Completed?</th><th>Quizes</th><th>Profile</th></tr>
+		<tr><th>Participant ID</th><th>Name</th><th>Quiz</th><th>Completed?</th><th>Quizes</th><th>Profile</th></tr>
 <?php
 	
 	if( count( $arrPatients ) == 0 ) 
@@ -102,13 +102,13 @@ $(function() {
 	}
 ?>
 	</table>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addPatient'), true ); ?>'; return false;">Add new patient</button>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'importPatient'), true ); ?>'; return false;">Import patient</button>
-	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'managePatients'), true ); ?>'; return false;">Manage patients</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addPatient'), true ); ?>'; return false;">Add new participant</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'importPatient'), true ); ?>'; return false;">Import participant</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'managePatients'), true ); ?>'; return false;">Manage participants</button>
 	<br/><br/>
 	</div>
 </div>
-<!-- END of Patient List -->
+<!-- END of Participant List -->
 	
 <hr><br/><br/>
 
@@ -131,6 +131,7 @@ $(function() {
 	?>
 	</table>
 	<button type="button" onclick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addQuiz'), true ); ?>'; return false;">Add new quiz</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'importQuiz'), true ); ?>'; return false;">Import quiz</button>
 	<br/><br/>
 	</div>
 </div>

@@ -132,6 +132,7 @@ $(function() {
 	
 	</table>
 	<button type="button" onclick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'addQuiz'), true ); ?>'; return false;">הוספת שאלון חדש</button>
+	<button type="button" onClick="window.location.href='<?php echo $this->Html->url(array('controller' => 'Admin', 'action' => 'importQuiz'), true ); ?>'; return false;">יבוא שאלון</button>
 	<br/><br/>
 	</div>
 </div>

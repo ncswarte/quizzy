@@ -1,4 +1,4 @@
-<h2>Manage patients:</h2>
+<h2>Manage participants:</h2>
 <script language="javascript" type="text/javascript">
 
 	function moveItem( idFrom, idTo ) {
@@ -25,8 +25,8 @@ $(function() {
 });
 </script>
 	<table style="width: 50%; border: 1px solid gray;">
-		<tr><th colspan="3" style="text-align: center;">Manage Patients [<?php echo $researchInfo['Research']['researchName']; ?>]:</th></tr>
-		<tr><th style="text-align: center;">Research Patients:</th><th style="text-align: center;"></th><th style="text-align: center;">Additional Patients:</th></tr>
+		<tr><th colspan="3" style="text-align: center;">Manage Participants [<?php echo $researchInfo['Research']['researchName']; ?>]:</th></tr>
+		<tr><th style="text-align: center;">Research Participants:</th><th style="text-align: center;"></th><th style="text-align: center;">Additional Participants:</th></tr>
 		<tr>
 			<td>
 				<select id="selPatient" multiple="multiple" name="selPatient"> 

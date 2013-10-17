@@ -1,4 +1,4 @@
-<h2>Patient [<?php echo $patInfo['Patient']['patFirstname']." ".$patInfo['Patient']['patLastname']; ?>] Quizzes:</h2>
+<h2>Participant [<?php echo $patInfo['Patient']['patFirstname']." ".$patInfo['Patient']['patLastname']; ?>] Quizzes:</h2>
 <script language="javascript" type="text/javascript">
 
 	function moveItem( idFrom, idTo ) {
@@ -31,7 +31,7 @@ $(function() {
 	<input type="hidden" name="patID" id="patID" value="<?php echo $patInfo['Patient']['patID']; ?>">
 	<table style="width: 50%; border: 1px solid gray;">
 		<tr><th colspan="3" style="text-align: center;">Manage Quizzes:</th></tr>
-		<tr><th style="text-align: center;">Patient Quizzes:</th><th style="text-align: center;"></th><th style="text-align: center;">Additional Research Quizzes:</th></tr>
+		<tr><th style="text-align: center;">Participant Quizzes:</th><th style="text-align: center;"></th><th style="text-align: center;">Additional Research Quizzes:</th></tr>
 		<tr>
 			<td>
 				<select id="selPatient" multiple="multiple" name="selPatient"> 

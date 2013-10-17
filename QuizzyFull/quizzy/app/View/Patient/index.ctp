@@ -45,7 +45,7 @@
 <h2>Profile info:</h2>
 <table style="width: 50%; border: 1px solid gray;">
 	<tr><th colspan="2">Profile:</th></tr>
-	<tr><td>Patient ID:</td>	<td><?php echo $patInfo['0']['Patient']['patID']; ?></td></tr>
+	<tr><td>Participant ID:</td>	<td><?php echo $patInfo['0']['Patient']['patID']; ?></td></tr>
 	<tr><td>Firstname:</td>		<td><?php echo $patInfo['0']['Patient']['patFirstname']; ?></td></tr>
 	<tr><td>Lastname:</td>		<td><?php echo $patInfo['0']['Patient']['patLastname']; ?></td></tr>
 	<tr><td>Age:</td>			<td><?php echo $patInfo['0']['Patient']['patAge']; ?></td></tr>

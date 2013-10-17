@@ -1,4 +1,4 @@
-<h2>Add patient:</h2>
+<h2>Add participant:</h2>
 <?php
 	echo $this->Form->create('Patient',array('url' => array('controller' => 'Admin', 'action' => 'addPatient')));
 	echo $this->Form->hidden('Patient.patID');
@@ -68,7 +68,7 @@ $(function() {
 	
 	// Submit handling :)
   	$('#btnDelete').click(function(){
-		var resQ = confirm("Are you sure you would like to delete this patient?");
+		var resQ = confirm("Are you sure you would like to delete this participant?");
 		
 		if( resQ == true ) {
 			$("#rawData").append('<form id="exportform" action="<?php echo Router::url(array('controller' => 'Admin', 'action' => 'deletePatient'), true ); ?>" method="post"><input type="hidden" id="fldPatientID" name="fldPatientID" /></form>');

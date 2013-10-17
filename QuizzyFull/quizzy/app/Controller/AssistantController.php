@@ -70,7 +70,7 @@ class AssistantController extends AppController {
 		// Add or edit a patient entry
 	public function addPatient( $id = null ) {
 		
-		$this->set('title_for_layout', __('Add a patient') );
+		$this->set('title_for_layout', __('Add a participant') );
 		if( $this->Session->check('User.currentResearch') == false ) {
 			$this->redirect(array('action' => 'index'));
 		}
@@ -105,7 +105,7 @@ class AssistantController extends AppController {
 						'researchID' => $tempSelectedResearch,
 						'patID' => $this->Patient->id )
 				) );
-				$this->Session->setFlash(__('Patient added successfully!', true));			
+				$this->Session->setFlash(__('Participant added successfully!', true));			
 			
 			// He's a old folk...
 			} else {
@@ -126,11 +126,11 @@ class AssistantController extends AppController {
 						$this->Session->setFlash(__('ERROR updating password (please check length)!', true));	
 						return;
 					} else {
-						$this->Session->setFlash(__('Patient updated successfully (including password)!', true));	
+						$this->Session->setFlash(__('Participant updated successfully (including password)!', true));	
 					}
 					
 				} else {
-					$this->Session->setFlash(__('Patient updated successfully!', true));	
+					$this->Session->setFlash(__('Participant updated successfully!', true));	
 				}
 			}
 
@@ -147,7 +147,7 @@ class AssistantController extends AppController {
 			//Fetch files
 			$this->loadModel('PatientFiles');
 			$this->set('fileData', $this->PatientFiles->loadPatientFiles( $id ) );
-			$this->set('title_for_layout', __('Update a patient') );
+			$this->set('title_for_layout', __('Update a participant') );
 		} 
 	}
 	
@@ -196,7 +196,7 @@ class AssistantController extends AppController {
 	
 	// Import an existing patient
 	public function importPatient() {
-		$this->set('title_for_layout', __('Import an existing patient') );
+		$this->set('title_for_layout', __('Import an existing participant') );
 		if( $this->Session->check('User.currentResearch') == false ) {
 			$this->redirect(array('action' => 'index'));
 		}
@@ -206,14 +206,14 @@ class AssistantController extends AppController {
 			
 			// Already part of this one?
 			if( $this->ResearchPatients->isPatientOfResearch( $this->data['patID'] , $this->Session->read('User.currentResearch') ) == true ) {
-				$this->Session->setFlash(__('Patient already associated with research!', true));			
+				$this->Session->setFlash(__('Participant already associated with research!', true));			
 			} else {
 				
 				// We're ok, continue...
 				$this->ResearchPatients->save( array(
 					'patID' => $this->data['patID'],
 					'researchID' => $this->Session->read('User.currentResearch') ) );
-				$this->Session->setFlash(__('Patient imported successfully!', true));			
+				$this->Session->setFlash(__('Participant imported successfully!', true));			
 				$this->redirect(array('controller' => 'Assistant', 'action' => 'index' ) );
 			}
 		}
@@ -334,7 +334,7 @@ class AssistantController extends AppController {
 	
 	// Manage a patient's quiz allocation
 	public function patientQuiz( $patID ) {
-		$this->set('title_for_layout', __('Manage patient quiz allocation') );
+		$this->set('title_for_layout', __('Manage participant quiz allocation') );
 		$this->loadModel('Quiz');
 		$this->loadModel('Patient');
 		$this->loadModel('PatientQuiz');
@@ -363,7 +363,7 @@ class AssistantController extends AppController {
 		// Manage research's patient allocation (i.e. add existing?)
 	public function managePatients( ) {
 		
-		$this->set('title_for_layout', __('Manage patient allocation') );
+		$this->set('title_for_layout', __('Manage participant allocation') );
 		
 		$this->loadModel('Quiz');
 		$this->loadModel('Patient');
@@ -390,7 +390,7 @@ class AssistantController extends AppController {
 		// Selection submitted
 		if( !empty( $this->data ) ) {
 			$this->saveResearchPatients( $this->data['fldPatientList'] );
-			$this->Session->setFlash(__('Patient allocation saved successfully!', true));			
+			$this->Session->setFlash(__('Participant allocation saved successfully!', true));			
 			$this->redirect(array('controller' => 'Assistant', 'action' => 'index' ) );
 		}
 
@@ -420,7 +420,7 @@ class AssistantController extends AppController {
 			$this->ResearchPatients->deleteAll( array('ResearchPatients.patID' => $this->data['fldPatientID'] ), false);
 			$this->Patient->delete( $this->data['fldPatientID'] );
 			
-			$this->Session->setFlash(__('Patient removed successfully!', true));
+			$this->Session->setFlash(__('Participant removed successfully!', true));
 			$this->redirect(array('controller' => 'Assistant', 'action' => 'index' ) );
 		}
 	}

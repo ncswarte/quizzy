@@ -642,7 +642,7 @@ class AdminController extends AppController {
 		$tempExt = strtolower(strrchr($file['name'], '.'));
 		
 		// Allowed Extensions
-		$arrValidExt = array('.png', '.bmp', '.tif', '.tiff', '.jpg', '.jpeg', '.gif', '.txt');
+		$arrValidExt = array('.png', '.bmp', '.tif', '.tiff', '.jpg', '.jpeg', '.gif', '.txt', '.pdf', '.csv', '.xls', '.xlsx', '.doc', '.docx');
 		
 		 // Validate Extension
 		if(in_array($tempExt, $arrValidExt)) {
